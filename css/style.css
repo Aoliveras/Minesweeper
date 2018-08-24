@@ -3,15 +3,21 @@ body {
 }
 
 .gameboard {
+    display: grid;
+    grid-template-columns: repeat(8, 12.5%);
+    grid-template-rows: repeat (9, 11.11%);
+    grid-template: repeat(8, 12.5%);
     background-color: grey; 
     margin: 0 auto;
-    height: 500px;
-    width: 360px;
+    height: 369px;
+    width: 328px;
 }
 
 .playbox {
+    /*display: grid;*/
     background-color: aqua;
     height: 40px;
     width: 40px;
+    /*border: 2px solid red;*/
 }
 
