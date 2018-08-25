@@ -1,5 +1,16 @@
 body {
-    /*margin: 0 auto;*/
+    *margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+.boardWrapper {
+    margin: 0 auto;
+    background-color: green;
+    height: 500px;
+    width: 360px;
 }
 
 .gameboard {
@@ -9,8 +20,8 @@ body {
     grid-template: repeat(8, 12.5%);
     background-color: grey; 
     margin: 0 auto;
-    height: 369px;
-    width: 328px;
+    height: 360px;
+    width: 320px;
 }
 
 .playbox {
@@ -18,6 +29,6 @@ body {
     background-color: aqua;
     height: 40px;
     width: 40px;
-    /*border: 2px solid red;*/
+    border: 1px solid red;
 }
 
