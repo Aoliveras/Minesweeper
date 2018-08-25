@@ -42,6 +42,9 @@ button {
     background: orange;
     height: 40px;
     width: 81px;
+    -webkit-box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
+    -moz-box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
+    box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
     /*border: 1px solid black;*/
 }
 
@@ -85,6 +88,7 @@ button {
     width: 330px;
     grid-column-start: 1;
     grid-column-end: span 8;
+    z-index: -1;
 }
 
 .gameboard {
@@ -105,6 +109,9 @@ button {
     height: 40px;
     width: 40px;
     border-radius: 20px;
+    -webkit-box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
+    -moz-box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
+    box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
     /*border: 2px dotted aliceblue;*/
 }
 
