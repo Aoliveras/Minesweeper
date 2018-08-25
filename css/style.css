@@ -8,6 +8,8 @@ h1 {
 }
 
 button {
+    font-size: 15px;
+    background-color: navajowhite;
     margin-top: 15px;
     order: 3;
     width: 80px;
@@ -15,6 +17,7 @@ button {
     grid-column-start: 4;
     grid-column-end: span 2;
     border-radius: 20px;
+    border: none;
 }
 
 .boardWrapper {
@@ -45,8 +48,7 @@ button {
 .timer {
     grid-column-start: 1;
     grid-column-end: span 2;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+    border-radius: 40px;
 }
 
 .gameSubmit {
@@ -64,6 +66,9 @@ button {
 .bombCount {
     grid-column-start: 5;
     grid-column-end: span 2;
+   
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
 }
 
 .markCount {
