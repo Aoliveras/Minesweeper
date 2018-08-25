@@ -9,7 +9,6 @@ h1 {
 
 .boardWrapper {
     display: grid;
-    /*grid-template-rows: 80% 20%;*/
     margin: 0 auto;
     background-color: green;
     height: 500px;
@@ -21,29 +20,70 @@ h1 {
 }
 
 .timer, .gameSubmit, .bombCount, .markCount {
+    text-align: center;
+    line-height: 42px;
     display: grid;
+    /*grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-template-columns: 25% 25% 25% 25%;*/
     background: orange;
-    height: 65px;
-    width: 100px;
-    border: 1px solid black;
+    height: 40px;
+    width: 81px;
+    /*border: 1px solid black;*/
+}
+
+.timer {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.gameSubmit {
+    background-color: chartreuse;
+    grid-column-start: 3;
+    grid-column-end: span 2;
+    border-radius: 40px;
+}
+
+.bombCount {
+    grid-column-start: 5;
+    grid-column-end: span 2;
+}
+
+.markCount {
+    grid-column-start: 7;
+    grid-column-end: span 2;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.spacer {
+    background-color: green;
+    order: 2;
+    height: 30px;
+    width: 330px;
+    grid-column-start: 1;
+    grid-column-end: span 8;
 }
 
 .gameboard {
     display: grid;
     grid-template-columns: repeat(8, 12.5%);
-    grid-template-rows: repeat (9, 11.11%);
+    grid-template-rows: 1f 10px 1f 1f 1f 1f 1f 1f 1f 1f 1f 1f;
     grid-template: repeat(8, 12.5%);
-    background-color: grey; 
-    margin: 20px auto;
-    height: 360px;
-    width: 320px;
+    background-color: green; 
+    margin: 30px auto;
+    height: 441px;
+    width: 328px;
 }
 
 .playbox {
     /*display: grid;*/
+    order: 3;
     background-color: aqua;
     height: 40px;
     width: 40px;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 
