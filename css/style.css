@@ -7,11 +7,21 @@ h1 {
     text-align: center;
 }
 
+button {
+    margin-top: 15px;
+    order: 3;
+    width: 80px;
+    height: 25px;
+    grid-column-start: 4;
+    grid-column-end: span 2;
+    border-radius: 20px;
+}
+
 .boardWrapper {
     display: grid;
     margin: 0 auto;
     background-color: green;
-    height: 500px;
+    height: 550px;
     width: 360px;
     border-radius: 20px;
     -webkit-box-shadow: 4px 14px 52px 4px rgba(0,0,0,0.77);
@@ -40,10 +50,15 @@ h1 {
 }
 
 .gameSubmit {
+    margin-top: -10px;
+    margin-left: 10px;
+    line-height: 60px;
     background-color: chartreuse;
     grid-column-start: 3;
     grid-column-end: span 2;
     border-radius: 40px;
+    height: 60px;
+    width: 60px;
 }
 
 .bombCount {
@@ -73,8 +88,8 @@ h1 {
     grid-template-rows: 1f 10px 1f 1f 1f 1f 1f 1f 1f 1f 1f 1f;
     grid-template: repeat(8, 12.5%);
     background-color: green; 
-    margin: 30px auto;
-    height: 441px;
+    margin: 35px auto;
+    height: 492px;
     width: 328px;
 }
 
@@ -84,6 +99,7 @@ h1 {
     background-color: aqua;
     height: 40px;
     width: 40px;
-    /*border: 1px solid red;*/
+    border-radius: 20px;
+    /*border: 2px dotted aliceblue;*/
 }
 
