@@ -1,4 +1,5 @@
 body {
+    background-color: #f47142;
     *margin: 0 auto;
 }
 
@@ -7,10 +8,24 @@ h1 {
 }
 
 .boardWrapper {
+    display: grid;
+    /*grid-template-rows: 80% 20%;*/
     margin: 0 auto;
     background-color: green;
     height: 500px;
     width: 360px;
+    border-radius: 20px;
+    -webkit-box-shadow: 4px 14px 52px 4px rgba(0,0,0,0.77);
+    -moz-box-shadow: 4px 14px 52px 4px rgba(0,0,0,0.77);
+    box-shadow: 4px 14px 52px 4px rgba(0,0,0,0.77);
+}
+
+.timer, .gameSubmit, .bombCount, .markCount {
+    display: grid;
+    background: orange;
+    height: 65px;
+    width: 100px;
+    border: 1px solid black;
 }
 
 .gameboard {
@@ -19,7 +34,7 @@ h1 {
     grid-template-rows: repeat (9, 11.11%);
     grid-template: repeat(8, 12.5%);
     background-color: grey; 
-    margin: 0 auto;
+    margin: 20px auto;
     height: 360px;
     width: 320px;
 }
