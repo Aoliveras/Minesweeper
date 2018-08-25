@@ -19,6 +19,9 @@ button {
     grid-column-end: span 2;
     border-radius: 20px;
     border: none;
+    -webkit-box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
+    -moz-box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
+    box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
 }
 
 .boardWrapper {
