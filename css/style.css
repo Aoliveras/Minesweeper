@@ -1,11 +1,39 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f8f665;
-    *margin: 0 auto;
+    background-color: #fdfb79;
+    margin: 0 auto;
 }
 
 h1 {
     text-align: center;
+}
+
+nav {
+    text-align: center;
+    margin: 50px auto;
+}
+
+nav a {
+    /*height: 20px;*/
+    background-color: #3ffce3;
+    padding: 20px;
+    text-decoration: none;
+    border-radius: 10px;
+    -webkit-box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
+    -moz-box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
+    box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
+}
+
+nav a:link {
+    color: #c95757
+}
+
+nav a:hover {
+    color: #c95757
+}
+
+nav a:active {
+    color: #c95757;
 }
 
 img {
