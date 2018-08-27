@@ -41,15 +41,14 @@ img {
     
 }
 
-button {
+.reset {
     font-size: 15px;
     background-color: navajowhite;
-    margin-top: 15px;
-    order: 3;
     width: 80px;
     height: 25px;
-    grid-column-start: 4;
-    grid-column-end: span 2;
+    margin-left: 140px;
+    /* grid-column-start: 4;
+    grid-column-end: span 2; */
     border-radius: 20px;
     border: none;
     -webkit-box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
@@ -58,10 +57,10 @@ button {
 }
 
 .boardWrapper {
-    display: grid;
-    margin: 0 auto;
+    /* display: grid; */
+    margin: 0 auto; 
     background-color: #c95757;
-    height: 550px;
+    height: 600px;
     width: 360px;
     border-radius: 20px;
     -webkit-box-shadow: 4px 14px 52px 4px rgba(0,0,0,0.77);
@@ -72,7 +71,8 @@ button {
 .timer, .gameSubmit, .bombCount, .markCount {
     text-align: center;
     line-height: 42px;
-    display: grid;
+    display: inline-block;
+    /* display: grid; */
     /*grid-column-start: 1;
     grid-column-end: span 2;
     grid-template-columns: 25% 25% 25% 25%;*/
@@ -86,9 +86,11 @@ button {
 }
 
 .timer {
-    grid-column-start: 1;
-    grid-column-end: span 2;
+    /* grid-column-start: 1; */
+    /* grid-column-end: span 2; */
     border-radius: 40px;
+    margin-left: 20px;
+    margin-top: 50px;
 }
 
 .gameSubmit {
@@ -96,29 +98,29 @@ button {
     margin-left: 10px;
     line-height: 60px;
     background-color: rgb(98, 187, 9);
-    grid-column-start: 3;
-    grid-column-end: span 2;
+    /* grid-column-start: 3;
+    grid-column-end: span 2; */
     border-radius: 40px;
     height: 60px;
     width: 60px;
 }
 
 .bombCount {
-    grid-column-start: 5;
-    grid-column-end: span 2;
+    /* grid-column-start: 5;
+    grid-column-end: span 2; */
    
     border-top-left-radius: 40px;
     border-bottom-left-radius: 40px;
 }
 
 .markCount {
-    grid-column-start: 7;
-    grid-column-end: span 2;
+    /* grid-column-start: 7;
+    grid-column-end: span 2; */
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
 
-.spacer {
+/* .spacer {
     background-color: green;
     order: 2;
     height: 30px;
@@ -126,20 +128,19 @@ button {
     grid-column-start: 1;
     grid-column-end: span 8;
     z-index: -1;
-}
+} */
 
 .gameboard {
     display: grid;
     grid-template-columns: repeat(8, 12.5%);
-    grid-template-rows: 1f 10px 1f 1f 1f 1f 1f 1f 1f 1f 1f 1f;
-    grid-template: repeat(8, 12.5%);
+    grid-template-rows: repeat(9, 11.11%);
     background-color: #c95757; 
     margin: 35px auto;
-    height: 492px;
+    height: 370px;
     width: 328px;
 }
 
-.playbox {
+.playBox {
     /*display: grid;*/
     text-align: center;
     line-height: 40px;

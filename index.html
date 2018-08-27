@@ -17,89 +17,86 @@
         <a href="#" class="hard">Hard</a>
     </nav>
     <div class="boardWrapper">
-        
-        <div class="gameboard">
-            <div class="timer">00:00</div>
-            <div class="gameSubmit">Submit</div>
-            <div class="bombCount">06</div>
-            <div class="markCount">00</div>
-            <div class="spacer"></div>
-            <div class="playbox">
-                <img src="./images/bomb.png" alt="bomb pic" class="bomb">
-            </div>
-            <div class="playbox">1</div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox">?</div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox">2</div>
-            <div class="playbox">2</div>
-            <div class="playbox"></div>
-            <div class="playbox"><img src="./images/flag.png" alt="flag" class="flag"></div>
-            <div class="playbox"><img src="./images/redBomb.png" alt="explode" class="explode"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox">1</div>
-            <div class="playbox"><img src="./images/bomb.png" alt="bomb pic" class="bomb"></div>
-            <div class="playbox">1</div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"><img src="./images/bomb.png" alt="bomb pic" class="bomb"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"><img src="./images/bomb.png" alt="bomb pic" class="bomb"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"><img src="./images/bomb.png" alt="bomb pic" class="bomb"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"><img src="./images/bomb.png" alt="bomb pic" class="bomb"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <div class="playbox"></div>
-            <button type="reset">Reset</button>
+        <div class="timer">00:00</div>
+        <div class="gameSubmit">Submit</div>
+        <div class="bombCount">06</div>
+        <div class="markCount">00</div>            
+        <!-- <div class="spacer"></div> -->
+        <div id="gameboard"class="gameboard">
+            <div oncontextmenu="changeHTML()" class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
+            <div class="playBox"></div>
         </div>
+        <button class="reset" type="reset">Reset</button>
     </div>
 </body>
 </html>
