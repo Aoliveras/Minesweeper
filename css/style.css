@@ -95,7 +95,7 @@ img {
 
 .gameSubmit {
     margin-top: -10px;
-    margin-left: 10px;
+    margin-left: 5px;
     line-height: 60px;
     background-color: rgb(98, 187, 9);
     /* grid-column-start: 3;
@@ -108,7 +108,7 @@ img {
 .bombCount {
     /* grid-column-start: 5;
     grid-column-end: span 2; */
-   
+    margin-left: 5px;
     border-top-left-radius: 40px;
     border-bottom-left-radius: 40px;
 }
@@ -116,6 +116,7 @@ img {
 .markCount {
     /* grid-column-start: 7;
     grid-column-end: span 2; */
+    margin-left: -2px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }

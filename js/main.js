@@ -20,15 +20,21 @@ console.log('JS Loadeeeeee!!!')
         //chosenSquare.innerText = possibleMarks[m];
     }
 
+    document.querySelector('.gameboard').addEventListener('contextmenu', e => {
+        e.preventDefault();
+        e.target.innerText = "X";
+    });
+
     document.querySelector('.gameboard').addEventListener('click', e => {
         //e.target.innerText = "X";
-        e.preventDefault();
-        (e.button === 0 ? e.target.innerText = "X" : e.target.innerHTML = possibleMarks[0]);
+        var whichButton = e.button;
+        console.log(whichButton);
+        e.target.button === 2 ? e.target.innerText = "X" : e.target.innerHTML = possibleMarks[0];
     });
 
 
 
-
+    
 
 
 
