@@ -1,3 +1,19 @@
+html{
+    position:relative; 
+    min-height: 100%;
+  }
+  /*Normalize html and body elements,this style is just good to have*/
+  html,body{
+    margin:0;
+    padding:0;
+  }
+  .pageContentWrapper{
+    margin-bottom:100px;/* Height of footer*/
+  } 
+  
+  
+
+
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #fdfb79;
@@ -5,6 +21,13 @@ body {
 }
 
 h1 {
+    color: purple;
+    margin-top: 40px;
+    text-align: center;
+}
+
+h2 {
+    color: #c95757;
     text-align: center;
 }
 
@@ -57,7 +80,7 @@ img {
 }
 
 .boardWrapper {
-    /* display: grid; */
+    display: block;
     margin: 0 auto; 
     background-color: #c95757;
     height: 600px;
@@ -158,3 +181,46 @@ img {
     /*border: 2px dotted aliceblue;*/
 }
 
+
+.gameLink {
+    /*display: table-cell;
+    vertical-align: middle;*/
+    height: 40px;
+    width: 300px;
+    background-color: #3ffce3;
+    color: purple;
+    font-size: 25px;
+    line-height: 70px;
+    text-decoration: none;
+}
+
+.footer{
+    margin-top: 15px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height:70px;
+    background-color: #3ffce3;
+    text-align: center;
+}
+
+footer a:hover {
+    color: #3ffce3;
+    background-color: #c95757;
+    padding: 10px;
+    border-radius: 5px;
+    -webkit-box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
+    -moz-box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
+    box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
+}
+
+
+.rules {
+    margin: 80px auto 40px auto;
+    width: 80%;
+}
+
+p {
+    text-align: center;
+}

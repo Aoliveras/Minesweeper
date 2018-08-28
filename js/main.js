@@ -5,20 +5,37 @@ console.log('JS Loadeeeeee!!!')
 
      //document.getElementsByClassName("playBox");
     //console.log(chosenSquare);
-
+   
+    
     let flag = "<img src='./images/flag.png'>";
     let possibleMarks = [flag, "?"]
+    let reSet = document.querySelector('.reset');
+    let time = 0;
+    let interval;
+    
+    /*reSet.addEventListener('click', function() {
+        let startTime = 0;
+        time = startTime;    
+    });*/
 
-    //function clickedSquare() {
-        //console.log();
-    //};
+    function convertToTime(time) {
+        let minutes = "0" + Math.floor(time / 60);
+        let seconds = "0" + time % 60;
+        return minutes.substr(-2) + ":" + seconds.substr(-2);
+      }
+  
+      function setTime(time) {
+          let timeEl = document.querySelector('.timer');
+          timeEl.innerHTML = convertToTime(time);
+      };
 
-    /*function changeHTML() {
-        event.preventDefault();
-        let chosenSquare = event.target;
-        chosenSquare.innerHTML = possibleMarks[0];
-        //chosenSquare.innerText = possibleMarks[m];
-    }*/
+      function startTime() {
+        interval = setInterval(function() {
+            time++;
+            setTime(time);
+        }, 1000);
+    };
+
 
     document.querySelector('.gameboard').addEventListener('contextmenu', e => {
         
@@ -32,15 +49,12 @@ console.log('JS Loadeeeeee!!!')
                 } else if (e.target.innerText === "?") {
                     e.preventDefault();
                     e.target.innerText = "";
-                } else if (e.target.innerText === "X") {
-                    e.preventDefault();
                 } else e.preventDefault();
     });
 
     document.querySelector('.gameboard').addEventListener('click', e => {
-        //e.target.innerText = "X";
-        var whichButton = e.button;
-        console.log(whichButton);
+        e.target.disabled = true;
+        startTime();
         e.target.innerText === "" ? e.target.innerText = "X": e.preventDefault();
     });
 
