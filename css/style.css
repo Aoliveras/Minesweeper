@@ -21,9 +21,13 @@ body {
 }
 
 h1 {
+    /*background-color: #3ffce3;*/
     color: purple;
     margin-top: 40px;
     text-align: center;
+    /*-webkit-box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
+    -moz-box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
+    box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);*/
 }
 
 h2 {
@@ -223,4 +227,19 @@ footer a:hover {
 
 p {
     text-align: center;
+}
+
+.letsGo {
+    display: block;
+    margin: 30px auto 0 auto;
+    background-color: #3ffce3;
+    color: #c95757;
+    font-size: 25px;
+    border: none;
+    border-radius: 20px;
+    padding: 5px;
+    width: 200px;
+    -webkit-box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
+    -moz-box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
+    box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
 }
