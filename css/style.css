@@ -21,13 +21,14 @@ body {
 }
 
 h1 {
-    /*background-color: #3ffce3;*/
+    line-height: 185px;
+    margin-top: -20px;
+    background-color: #3ffce3;
     color: purple;
-    margin-top: 40px;
     text-align: center;
-    /*-webkit-box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
+    -webkit-box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
     -moz-box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
-    box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);*/
+    box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
 }
 
 h2 {
@@ -196,6 +197,16 @@ img {
     font-size: 25px;
     line-height: 70px;
     text-decoration: none;
+}
+
+./header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height:100px;
+    background-color: #3ffce3;
+    text-align: center;
 }
 
 .footer{
