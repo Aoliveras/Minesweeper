@@ -1,3 +1,6 @@
+
+
+
 class PlayBox {
     constructor(x, y) {
         this.bomb = false;
@@ -19,15 +22,11 @@ function generateBoxes(num) {
         let box = new PlayBox(xCoord, yCoord);
         state.push(box);
     }
-    debugger
 };
-
 
 generateBoxes(64);
 
-
-
-
+console.log(state);
 
 
 // state.push(new PlayBox(1, 2));
