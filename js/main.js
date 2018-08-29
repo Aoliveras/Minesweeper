@@ -12,7 +12,7 @@ console.log('JS Loadeeeeee!!!')
 
     let state = [];
     const flag = "<img src='./images/flag.png'>";
-    const possibleMarks = [flag, "?"]
+    const possibleMarks = [flag, "?"];
     const reSet = document.querySelector('.reset');
     const startCLick = document.querySelector('.gameboard');
     const cell = document.querySelectorAll('.playBox');
@@ -59,7 +59,7 @@ console.log('JS Loadeeeeee!!!')
     class Cell {
         constructor(x, y) {
             this.bomb = false;
-            this.bombNeighbor = false;
+            this.bombNeighbor = 0;
             this.flagged = false;
             this.hidden = true;
             this.x = x;
@@ -89,17 +89,26 @@ console.log('JS Loadeeeeee!!!')
           timeEl.innerHTML = convertToTime(time);
       };
 
-      function startTime(e) {
+      function startTime() {
+        init();
         interval = setInterval(function() {
             time++;
             setTime(time);
         }, 1000);
-    };
+        for (var i = 0; i < cell.length; i++) {
+            cell[i].removeEventListener('click', startTime);
+    }
+};
 
     /*
      *  EVENT LISTENERS
      */
 
+    for (var i = 0; i < cell.length; i++) {
+        let listenCell = [];
+        cell[i].addEventListener('click', startTime);
+        
+    };
       /*
      *  INIT
      */
@@ -110,6 +119,7 @@ console.log('JS Loadeeeeee!!!')
         generateRandom(10, 64).forEach(element => {
             state[element].bomb = true;
         });
+        //adjBombCount(state[0[0]], state[0[1]]);
         render(state);
     }
 
