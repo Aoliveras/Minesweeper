@@ -57,9 +57,9 @@ console.log('JS Loadeeeeee!!!')
     }
 
     class Cell {
-        constructor(x, y) {
+        constructor(x, y, bombsNear) {
             this.bomb = false;
-            this.bombNeighbor = 0;
+            this.bombNeighbor = bombsNear;
             this.flagged = false;
             this.hidden = true;
             this.x = x;
@@ -72,7 +72,8 @@ console.log('JS Loadeeeeee!!!')
         for (let i = 0; i < num; i++) {
             let xCoord = i % 8;
             if (xCoord === 0) yCoord++;
-            let box = new Cell(xCoord, yCoord);
+            let bombsNear = adjBombCount(xCoord,yCoord);
+            let box = new Cell(xCoord, yCoord, bombsNear);
             state.push(box);
         }
     };
@@ -112,9 +113,21 @@ console.log('JS Loadeeeeee!!!')
      *  EVENT LISTENERS
      */
 
-    for (var i = 0; i < cell.length; i++) {
+    function gameOn() {
+        for (var i = 0; i < cell.length; i++) {
         cell[i].addEventListener('click', startTime);
+        }
     };
+
+    reSet.addEventListener('click', function() {
+        location.reload();
+        // clearInterval(interval);
+        // var time = 0; 
+        // setTime(time);
+        // renderBlank();
+        // gameOn();
+    });
+
       /*
      *  INIT
      */
@@ -125,16 +138,13 @@ console.log('JS Loadeeeeee!!!')
         generateRandom(10, 64).forEach(element => {
             state[element].bomb = true;
         });
-        //adjBombCount(state[0[0]], state[0[1]]);
+        
+        console.log(adjBombCount(state[0].x, state[0].y));
+        state[0].bombNeighbor = adjBombCount(state[0].x, state[0].y);
         render(state);
     }
 
-    reSet.addEventListener('click', function() {
-        clearInterval(interval);
-        let time = 0; 
-        setTime(time);
-    });
-
+    
     /*
      * RENDER
      */ 
@@ -142,22 +152,33 @@ console.log('JS Loadeeeeee!!!')
     function render(state) {
         state.forEach((element, index) => {
            if (element.bomb) {
-               cell[index].innerText = "B";
+               cell[index].innerHTML = "<span>B</span>";
            } else {
-            cell[index].innerText = "";
+            let bombNum = adjBombCount(element.x, element.y);
+            if (bombNum > 0 && bombNum <= 4) {
+            cell[index].innerHTML = bombNum;
+            //cell[index].hidden = true;
+            } else {};
            };
         //    if (element.bombNeighbor <= 4 && !0) {
         //     cell[index].innerText = numBombs;
         //     };
         });
     }
+
+    function renderBlank() {
+        state.forEach((element, index) => {
+            cell[index].innerText = "";
+        })
+        
+    };
    
     
     
     
     
     
-   
+   gameOn();
     
     //console.log(state);
     

@@ -37,11 +37,40 @@ h1 {
     margin-top: -20px;
     margin-bottom: -20px;
     background-color: #3ffce3;
-    color: purple;
+    color: rgb(182, 69, 182);
     text-align: center;
     -webkit-box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
     -moz-box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
     box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
+}
+
+.rules {
+    border-radius: 25px;
+}
+
+p {
+    background-color: rgba(255, 245, 232, 0.911);
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    padding: 20px;
+    border-radius: 25px;
+    width: auto;
+    -webkit-box-shadow: inset 6px -4px 47px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 6px -4px 47px 0px rgba(0,0,0,0.75);
+    box-shadow: inset 6px -4px 47px 0px rgba(0,0,0,0.75);
+    /* -webkit-box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
+    -moz-box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51);
+    box-shadow: 4px 14px 17px -7px rgba(0,0,0,0.51); */
+}
+
+pre {
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    line-height: 15px;
+}
+
+span {
+    visibility: default;
 }
 
 h2 {
