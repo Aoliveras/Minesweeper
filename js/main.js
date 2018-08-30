@@ -1,10 +1,4 @@
-console.log('JS Loadeeeeee!!!')
-
-
 //function main () {
-
-     //document.getElementsByClassName("playBox");
-    //console.log(chosenSquare);
 
     /*
      *  CONSTANTS AND CACHED DOM NODES
@@ -19,10 +13,45 @@ console.log('JS Loadeeeeee!!!')
     let time = 0;
     let interval;
 
-
     /*
      *  UTILITY
      */
+
+    function revealCells(x,y) {
+
+        let matrix = chunkArray(state);
+
+        if (matrix[y][x].bomb || matrix[y][x].bombNeighbor > 0) return;
+
+        let adjCoords = [
+            [x-1, y],
+            [x+1, y],
+            [x, y-1],
+            [x, y+1],
+            [x-1, y+1],
+            [x+1, y-1],
+            [x-1, y-1],
+            [x+1, y+1]
+        ];
+
+
+        if ((matrix[y][x].bombNeighbor !== 0) || matrix[y][x].visited) return;
+        
+        state[y*8 + x].visited = true;
+        state[y*8 + x].hidden = false;
+        let k=0;
+        for (k=0; k<adjCoords.length; k++) {
+            let i = adjCoords[k][0];
+            let j = adjCoords[k][1];
+            let iCond = (i >= 0) && (i < 8);
+            let jCond = (j >= 0) && (j < 8);
+
+            if (iCond && jCond) {
+                revealCells(i,j);
+            }
+        }
+
+    }
 
     function generateRandom(numBombs, range) {
         let bombIdx = [];
@@ -33,6 +62,12 @@ console.log('JS Loadeeeeee!!!')
             }
         } 
         return bombIdx;
+    }
+
+    function chunkArray(state) {
+        return state
+            .map((item, idx) => (idx % 8) === 0 ? state.slice(idx,idx+8) : null)
+            .filter(item => item)
     }
 
     function adjBombCount(x,y) {
@@ -47,21 +82,30 @@ console.log('JS Loadeeeeee!!!')
             [x-1, y-1],
             [x+1, y+1]
         ];
+
+        let matrix = chunkArray(state);
+
         adjCoords.forEach(element => {
-          let stateMapping = element[0]+element[1]*8;
-          if (state[stateMapping]) {
-              numBombs = state[stateMapping].bomb ? numBombs+1 : numBombs; 
-          }
+           [i,j] = element;
+           let iCond = (i >= 0) && (i < 8);
+           let jCond = (j >= 0) && (j < 8);
+       
+           if (iCond && jCond) {
+               numBombs = matrix[j][i].bomb ? numBombs + 1 : numBombs;
+           }
+           
         });
+
         return numBombs;
     }
 
     class Cell {
-        constructor(x, y, bombsNear) {
+        constructor(x, y) {
             this.bomb = false;
-            this.bombNeighbor = bombsNear;
+            this.bombNeighbor = 0;
             this.flagged = false;
             this.hidden = true;
+            this.visited = false;
             this.x = x;
             this.y = y;
         }
@@ -72,8 +116,7 @@ console.log('JS Loadeeeeee!!!')
         for (let i = 0; i < num; i++) {
             let xCoord = i % 8;
             if (xCoord === 0) yCoord++;
-            let bombsNear = adjBombCount(xCoord,yCoord);
-            let box = new Cell(xCoord, yCoord, bombsNear);
+            let box = new Cell(xCoord, yCoord);
             state.push(box);
         }
     };
@@ -83,41 +126,46 @@ console.log('JS Loadeeeeee!!!')
         let minutes = "0" + Math.floor(time / 60);
         let seconds = "0" + time % 60;
         return minutes.substr(-2) + ":" + seconds.substr(-2);
-      }
+    }
   
-      function setTime(time) {
-          let timeEl = document.querySelector('.timer');
-          timeEl.innerHTML = convertToTime(time);
-      };
+    function setTime(time) {
+        let timeEl = document.querySelector('.timer');
+        timeEl.innerHTML = convertToTime(time);
+    };
 
-      function startTime() {
-        init();
-        interval = setInterval(function() {
-            time++;
-            setTime(time);
-        }, 1000);
-        for (var i = 0; i < cell.length; i++) {
-            let cellText = [];
-            cell[i].removeEventListener('click', startTime);
-            // cell[i].style.visibility = "hidden";
-            // cellText.push(cell[i].innerText);
-            //     for (var j = 0; j < cellText.length; j++) {
-            //         if (cellText[i].innerText === "B") {
-            //             cellText[i].style.visibility = "hidden";
-            //         } else {};
-            //     }
-             }
+    function startTime(evt) {
+        state[evt.target.dataset.id].hidden = false;
+        let fromClickId = evt.target.dataset.id;
+        revealCells(fromClickId%8, Math.floor(fromClickId/8));
+        render(state);
+         if (state[evt.target.dataset.id].bomb) { 
+             alert('You lost');
+             startCLick.removeEventListener('click', startTime);
+             //clearInterval(interval);
+         };
+         interval = setInterval(function() {
+             time++;
+             setTime(time);
+         }, 1000);
+         for (var i = 0; i < cell.length; i++) {
+             let cellText = [];
+             // cell[i].style.visibility = "hidden";
+             // cellText.push(cell[i].innerText);
+             //     for (var j = 0; j < cellText.length; j++) {
+             //         if (cellText[i].innerText === "B") {
+             //             cellText[i].style.visibility = "hidden";
+             //         } else {};
+             //     }
+              }
     };
 
     /*
      *  EVENT LISTENERS
      */
 
-    function gameOn() {
-        for (var i = 0; i < cell.length; i++) {
-        cell[i].addEventListener('click', startTime);
-        }
-    };
+ 
+    startCLick.addEventListener('click', startTime);
+  
 
     reSet.addEventListener('click', function() {
         location.reload();
@@ -138,9 +186,10 @@ console.log('JS Loadeeeeee!!!')
         generateRandom(10, 64).forEach(element => {
             state[element].bomb = true;
         });
+        state.forEach(cl => {
+            cl.bombNeighbor = adjBombCount(cl.x, cl.y);
+        })
         
-        console.log(adjBombCount(state[0].x, state[0].y));
-        state[0].bombNeighbor = adjBombCount(state[0].x, state[0].y);
         render(state);
     }
 
@@ -151,36 +200,21 @@ console.log('JS Loadeeeeee!!!')
 
     function render(state) {
         state.forEach((element, index) => {
-           if (element.bomb) {
-               cell[index].innerHTML = "<span>B</span>";
-           } else {
-            let bombNum = adjBombCount(element.x, element.y);
-            if (bombNum > 0 && bombNum <= 4) {
-            cell[index].innerHTML = bombNum;
-            //cell[index].hidden = true;
-            } else {};
-           };
-        //    if (element.bombNeighbor <= 4 && !0) {
-        //     cell[index].innerText = numBombs;
-        //     };
+            if (!element.hidden) {
+                if (element.bomb) {
+                    cell[index].innerHTML = "<span>B</span>";
+                } else {
+                    cell[index].innerHTML = element.bombNeighbor;
+                };
+            }
         });
     }
 
-    function renderBlank() {
-        state.forEach((element, index) => {
-            cell[index].innerText = "";
-        })
-        
-    };
+    init();
    
     
     
     
-    
-    
-   gameOn();
-    
-    //console.log(state);
     
    
     
