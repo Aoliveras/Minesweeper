@@ -96,18 +96,24 @@ console.log('JS Loadeeeeee!!!')
             setTime(time);
         }, 1000);
         for (var i = 0; i < cell.length; i++) {
+            let cellText = [];
             cell[i].removeEventListener('click', startTime);
-    }
-};
+            // cell[i].style.visibility = "hidden";
+            // cellText.push(cell[i].innerText);
+            //     for (var j = 0; j < cellText.length; j++) {
+            //         if (cellText[i].innerText === "B") {
+            //             cellText[i].style.visibility = "hidden";
+            //         } else {};
+            //     }
+             }
+    };
 
     /*
      *  EVENT LISTENERS
      */
 
     for (var i = 0; i < cell.length; i++) {
-        let listenCell = [];
         cell[i].addEventListener('click', startTime);
-        
     };
       /*
      *  INIT
@@ -123,6 +129,12 @@ console.log('JS Loadeeeeee!!!')
         render(state);
     }
 
+    reSet.addEventListener('click', function() {
+        clearInterval(interval);
+        let time = 0; 
+        setTime(time);
+    });
+
     /*
      * RENDER
      */ 
@@ -134,6 +146,9 @@ console.log('JS Loadeeeeee!!!')
            } else {
             cell[index].innerText = "";
            };
+        //    if (element.bombNeighbor <= 4 && !0) {
+        //     cell[index].innerText = numBombs;
+        //     };
         });
     }
    
@@ -150,10 +165,7 @@ console.log('JS Loadeeeeee!!!')
     
     
     
-    reSet.addEventListener('click', function() {
-        let startTime = 0;
-        time = startTime;    
-    });
+   
 
    
 
