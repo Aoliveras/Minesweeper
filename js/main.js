@@ -8,6 +8,8 @@
     const reSet = document.querySelector('.reset');
     const startCLick = document.querySelector('.gameboard');
     const cell = document.querySelectorAll('.playBox');
+    let flagCount = [];
+    let flags = document.querySelector('.markCount');
     let time = 0;
     let interval;
 
@@ -167,16 +169,28 @@
         event.preventDefault();
         let stateEvent = state[evt.target.dataset.id];
         let blankStr = stateEvent.innerText;
+        function countFlag(arr) {
+            var flagTally = 0;
+            for (var i = 0; i < arr.length; i++) {
+                flagTally++;
+            } 
+            flags.innerText = flagTally;
+        };
             if (blankStr === "" || blankStr === "B") {
                 stateEvent.flagged = true;
                 stateEvent.innerText = "?";
                 stateEvent.hidden = false;
+                flagCount.push(stateEvent);
+                countFlag(flagCount);
+
             render(state);
             } else {
                 if (blankStr === "?") {
                     stateEvent.flagged = false;
                     stateEvent.innerText = "";
                     stateEvent.hidden = true;
+                    flagCount.pop(stateEvent);
+                    countFlag(flagCount);
                 render(state);
                 }
             };
@@ -222,7 +236,12 @@
                     if (element.bomb) {
                     cell[index].innerText = "🤯";
                         } else {
+                            if (element.bombNeighbor === 0) {
+                                cell[index].style.backgroundColor = "rgb(182, 69, 182)";
+                                cell[index].style.boxShadow = "none";
+                            } else {
                             cell[index].innerHTML = element.bombNeighbor;
+                            }
                         }
                     }
                 }   
