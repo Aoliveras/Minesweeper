@@ -162,9 +162,10 @@
      *  EVENT LISTENERS
      */
 
- 
+    //leftclicks
     startCLick.addEventListener('click', startGame);
     startCLick.addEventListener('click', startTime);
+    //rightclicks
     startCLick.addEventListener('contextmenu', function(evt) {
         event.preventDefault();
         let stateEvent = state[evt.target.dataset.id];
@@ -237,7 +238,7 @@
                     cell[index].innerText = "🤯";
                         } else {
                             if (element.bombNeighbor === 0) {
-                                cell[index].style.backgroundColor = "rgb(182, 69, 182)";
+                                cell[index].style.backgroundColor = "rgba(182, 79, 182, 0.8)";
                                 cell[index].style.boxShadow = "none";
                             } else {
                             cell[index].innerHTML = element.bombNeighbor;
