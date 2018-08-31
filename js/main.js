@@ -164,18 +164,19 @@
     startCLick.addEventListener('click', startGame);
     startCLick.addEventListener('click', startTime);
     startCLick.addEventListener('contextmenu', function(evt) {
-        event.preventDefault()
-        let blankStr = state[evt.target.dataset.id].innerText;
+        event.preventDefault();
+        let stateEvent = state[evt.target.dataset.id];
+        let blankStr = stateEvent.innerText;
             if (blankStr === "" || blankStr === "B") {
-                state[evt.target.dataset.id].flagged = true;
-                state[evt.target.dataset.id].innerText = "?";
-                state[evt.target.dataset.id].hidden = false;
+                stateEvent.flagged = true;
+                stateEvent.innerText = "?";
+                stateEvent.hidden = false;
             render(state);
             } else {
                 if (blankStr === "?") {
-                    state[evt.target.dataset.id].flagged = false;
-                    state[evt.target.dataset.id].innerText = "";
-                    state[evt.target.dataset.id].hidden = true;
+                    stateEvent.flagged = false;
+                    stateEvent.innerText = "";
+                    stateEvent.hidden = true;
                 render(state);
                 }
             };
