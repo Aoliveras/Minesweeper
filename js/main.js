@@ -1,5 +1,3 @@
-//function main () {
-
     /*
      *  CONSTANTS AND CACHED DOM NODES
      */
@@ -147,7 +145,10 @@
         revealCells(fromClickId%8, Math.floor(fromClickId/8));
         render(state);
          if (state[evt.target.dataset.id].bomb) { 
-             alert('You lost');
+             function youLose() {
+                let loseWindow = window.open("./lose.html", "_blank", "toolbar=no,location=no,scrollbars=no,resizeable=no,top=200,left=200,width=400,height=600");
+             };
+             youLose();
              startCLick.removeEventListener('click', startGame);
              clearInterval(interval);
          };
@@ -166,11 +167,7 @@
 
     reSet.addEventListener('click', function() {
         location.reload();
-        // clearInterval(interval);
-        // var time = 0; 
-        // setTime(time);
-        // renderBlank();
-        // gameOn();
+    
     });
 
       /*
@@ -222,44 +219,4 @@
    
 
 
-    // document.querySelector('.gameboard').addEventListener('contextmenu', e => {
-       
-    //     //e.target.innerText === "" ? e.target.innerHTML = possibleMarks[0] : e.target.innerHTML = "";
-    //     if (e.target.innerText === "") {
-    //         e.preventDefault(); 
-    //         e.target.innerText = "B!";
-    //         } else if (e.target.innerText === "B!") {
-    //             e.preventDefault();
-    //             e.target.innerText = "?";
-    //             } else if (e.target.innerText === "?") {
-    //                 e.preventDefault();
-    //                 e.target.innerText = "";
-    //             } else e.preventDefault();
-    // });
-
     
-    
-    // startCLick.addEventListener('click', e => {
-    //     e.disabled = true;
-    //     startTime();
-    //     console.log(e.target);
-    //     e.target.innerText === "" ? e.target.innerText = "X" : e.preventDefault();
-        
-    // });
-
-
-
-    
-
-
-
-
-
-
-
-
-
-//}
-
-
-//main();
