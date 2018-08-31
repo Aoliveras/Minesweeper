@@ -34,7 +34,6 @@
 
 
         if ((matrix[y][x].bombNeighbor !== 0) || matrix[y][x].visited) return;
-        
         state[y*8 + x].visited = true;
         state[y*8 + x].hidden = false;
         let k=0;
@@ -104,6 +103,7 @@
             this.flagged = false;
             this.hidden = true;
             this.visited = false;
+            this.innerText = "";
             this.x = x;
             this.y = y;
         }
@@ -163,12 +163,29 @@
  
     startCLick.addEventListener('click', startGame);
     startCLick.addEventListener('click', startTime);
-  
-
+    startCLick.addEventListener('contextmenu', function(evt) {
+        event.preventDefault()
+        let blankStr = state[evt.target.dataset.id].innerText;
+            if (blankStr === "" || blankStr === "B") {
+                state[evt.target.dataset.id].flagged = true;
+                state[evt.target.dataset.id].innerText = "?";
+                state[evt.target.dataset.id].hidden = false;
+            render(state);
+            } else {
+                if (blankStr === "?") {
+                    state[evt.target.dataset.id].flagged = false;
+                    state[evt.target.dataset.id].innerText = "";
+                    state[evt.target.dataset.id].hidden = true;
+                render(state);
+                }
+            };
+            
+    });
     reSet.addEventListener('click', function() {
         location.reload();
     
     });
+
 
       /*
      *  INIT
@@ -194,15 +211,22 @@
 
     function render(state) {
         state.forEach((element, index) => {
-            if (!element.hidden) {
-                if (element.bomb) {
-                    cell[index].innerHTML = "<span>B</span>";
-                } else {
-                    cell[index].innerHTML = element.bombNeighbor;
-                };
+            if (!element.hidden && element.flagged === true) {
+                cell[index].innerText = "?";
+            } else if (element.hidden && !element.flagged) {
+                cell[index].innerText = "";
             }
-        });
-    }
+            else {
+                if (!element.hidden) {
+                    if (element.bomb) {
+                    cell[index].innerText = "B";
+                        } else {
+                            cell[index].innerHTML = element.bombNeighbor;
+                        }
+                    }
+                }   
+        })
+    };
 
     init();
    
