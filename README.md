@@ -7,7 +7,7 @@ Minesweeper is a complex game of a little chance and a lot of strategy
 
 //screenshot of the game
 
-//project planning
+//project planning (wireframe --> finished project)
 
 //technologies used
 

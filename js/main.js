@@ -133,30 +133,26 @@
         timeEl.innerHTML = convertToTime(time);
     };
 
-    function startTime(evt) {
+    function startTime() {
+        interval = setInterval(function() {
+            time++;
+            setTime(time);
+        }, 1000);
+        startCLick.removeEventListener('click', startTime);
+    };
+
+    function startGame(evt) {
         state[evt.target.dataset.id].hidden = false;
         let fromClickId = evt.target.dataset.id;
         revealCells(fromClickId%8, Math.floor(fromClickId/8));
         render(state);
          if (state[evt.target.dataset.id].bomb) { 
              alert('You lost');
-             startCLick.removeEventListener('click', startTime);
-             //clearInterval(interval);
+             startCLick.removeEventListener('click', startGame);
+             clearInterval(interval);
          };
-         interval = setInterval(function() {
-             time++;
-             setTime(time);
-         }, 1000);
-         for (var i = 0; i < cell.length; i++) {
-             let cellText = [];
-             // cell[i].style.visibility = "hidden";
-             // cellText.push(cell[i].innerText);
-             //     for (var j = 0; j < cellText.length; j++) {
-             //         if (cellText[i].innerText === "B") {
-             //             cellText[i].style.visibility = "hidden";
-             //         } else {};
-             //     }
-              }
+        
+         
     };
 
     /*
@@ -164,6 +160,7 @@
      */
 
  
+    startCLick.addEventListener('click', startGame);
     startCLick.addEventListener('click', startTime);
   
 
