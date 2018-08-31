@@ -212,14 +212,14 @@
     function render(state) {
         state.forEach((element, index) => {
             if (!element.hidden && element.flagged === true) {
-                cell[index].innerText = "?";
+                cell[index].innerText = "🎌";
             } else if (element.hidden && !element.flagged) {
                 cell[index].innerText = "";
             }
             else {
                 if (!element.hidden) {
                     if (element.bomb) {
-                    cell[index].innerText = "B";
+                    cell[index].innerText = "🤯";
                         } else {
                             cell[index].innerHTML = element.bombNeighbor;
                         }
