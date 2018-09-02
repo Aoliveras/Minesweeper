@@ -137,24 +137,24 @@
         startCLick.removeEventListener('click', startTime);
     };
 
-     function checkWin(arr) {
-        let hiddenArr = [];
-           for (var i = 0; i < arr.length; i++) {
-                hiddenArr.push(arr[i].hidden);
-            };
-            for (var j = 0; j < hiddenArr.length; j++) {
-            if(hiddenArr[j] !== hiddenArr[j+1]) {
-                return false;
-            } else {
-                function youWin() {
-                    window.open("./win.html", "_blank", "toolbar=no,location=no,scrollbars=no,resizeable=no,top=200,left=200,width=400,height=600");
-                };
-                youWin();
-                startCLick.removeEventListener('click', startGame);
-                clearInterval(interval);
-            };
-        }
-    };
+    //  function checkWin(arr) {
+    //     let hiddenArr = [];
+    //        for (var i = 0; i < arr.length; i++) {
+    //             hiddenArr.push(arr[i].hidden);
+    //         };
+    //         for (var j = 0; j < hiddenArr.length; j++) {
+    //         if(hiddenArr[j] !== hiddenArr[j+1]) {
+    //             return false;
+    //         } else {
+    //             function youWin() {
+    //                 window.open("./win.html", "_blank", "toolbar=no,location=no,scrollbars=no,resizeable=no,top=200,left=200,width=400,height=600");
+    //             };
+    //             youWin();
+    //             startCLick.removeEventListener('click', startGame);
+    //             clearInterval(interval);
+    //         };
+    //     }
+    // };
 
     function startGame(evt) {
         state[evt.target.dataset.id].hidden = false;
